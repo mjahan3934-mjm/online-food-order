@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Menu - FoodOrder{% endblock %}
+
+{% block content %}
+<section class="menu-page">
+    <h1>Our Menu</h1>
+    <div class="menu-categories">
+        <button class="category-filter active" data-category="all">All</button>
+        {% for category in categories %}
+        <button class="category-filter" data-category="{{ category.id }}">{{ category.name }}</button>
+        {% endfor %}
+    </div>
+    
+    <div class="menu-grid" id="menu-grid">
+        {% for category in categories %}
+            {% for item in category.items %}
+            <div class="menu-item" data-category="{{ category.id }}">
+                <div class="menu-item-image">
+                    <img src="{{ url_for('static', filename=item.image) }}" alt="{{ item.name }}" onerror="this.parentElement.querySelector('.placeholder-img').style.display='flex'; this.style.display='none'">
+                    <div class="placeholder-img">{{ item.name[0] }}</div>
+                </div>
+                <div class="menu-item-info">
+                    <h3>{{ item.name }}</h3>
+                    <p class="description">{{ item.description }}</p>
+                    <div class="menu-item-footer">
+                        <span class="price">৳{{ "%.0f"|format(item.price) }}</span>
+                        <button class="btn btn-small add-to-cart" data-id="{{ item.id }}" data-name="{{ item.name }}" data-price="{{ item.price }}">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    const menuItems = {{ menu_items|tojson if menu_items else '[]' }};
+</script>
+{% endblock %}

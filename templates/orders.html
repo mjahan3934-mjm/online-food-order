@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Orders - FoodOrder{% endblock %}
+
+{% block content %}
+<section class="orders-page">
+    <h1>Your Orders</h1>
+    <div class="orders-search">
+        <input type="text" id="order-search" placeholder="Enter order ID to track...">
+        <button class="btn btn-small" id="search-order-btn">Track Order</button>
+    </div>
+    <div class="orders-list" id="orders-list">
+        <p class="no-orders">No orders yet. <a href="{{ url_for('menu') }}">Browse menu</a> to place an order.</p>
+    </div>
+</section>
+
+<div class="modal" id="order-modal">
+    <div class="modal-content">
+        <button class="modal-close">&times;</button>
+        <div id="order-details">
+            <h2>Order #<span id="detail-order-id"></span></h2>
+            <div class="order-status">
+                <span class="status-label">Status:</span>
+                <span class="status-value" id="detail-status"></span>
+            </div>
+            <div class="order-info">
+                <p><strong>Date:</strong> <span id="detail-date"></span></p>
+                <p><strong>Name:</strong> <span id="detail-name"></span></p>
+                <p><strong>Email:</strong> <span id="detail-email"></span></p>
+                <p><strong>Phone:</strong> <span id="detail-phone"></span></p>
+                <p><strong>Address:</strong> <span id="detail-address"></span></p>
+            </div>
+            <div class="order-items">
+                <h3>Items</h3>
+                <ul id="detail-items"></ul>
+            </div>
+            <div class="order-total">
+                <p>Total: <strong id="detail-total"></strong></p>
+            </div>
+        </div>
+        <p id="order-not-found" class="hidden">Order not found</p>
+    </div>
+</div>
+{% endblock %}

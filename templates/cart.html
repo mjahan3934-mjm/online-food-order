@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}Cart - FoodOrder{% endblock %}
+
+{% block content %}
+<section class="cart-page">
+    <h1>Your Cart</h1>
+    <div class="cart-container">
+        <div class="cart-items" id="cart-items">
+            <p class="empty-cart">Your cart is empty</p>
+        </div>
+        <div class="cart-summary">
+            <h3>Order Summary</h3>
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <span id="subtotal">৳0</span>
+            </div>
+            <div class="summary-row">
+                <span>Delivery</span>
+                <span id="delivery">৳50</span>
+            </div>
+            <div class="summary-row total">
+                <span>Total</span>
+                <span id="total">৳3</span>
+            </div>
+            <button class="btn btn-primary btn-full" id="checkout-btn" disabled>Proceed to Checkout</button>
+        </div>
+    </div>
+</section>
+
+<div class="modal" id="checkout-modal">
+    <div class="modal-content">
+        <button class="modal-close">&times;</button>
+        <h2>Checkout</h2>
+        <form id="checkout-form">
+            <div class="form-group">
+                <label for="customer_name">Name</label>
+                <input type="text" id="customer_name" name="customer_name" required>
+            </div>
+            <div class="form-group">
+                <label for="customer_email">Email</label>
+                <input type="email" id="customer_email" name="customer_email" required>
+            </div>
+            <div class="form-group">
+                <label for="customer_phone">Phone</label>
+                <input type="tel" id="customer_phone" name="customer_phone" required>
+            </div>
+            <div class="form-group">
+                <label for="customer_address">Delivery Address</label>
+                <textarea id="customer_address" name="customer_address" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Place Order</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}FoodOrder - Quick Delivery{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <h1>Delicious Food, Delivered Fast</h1>
+        <p>Order your favorite meals online and get them delivered to your door</p>
+        <a href="{{ url_for('menu') }}" class="btn btn-primary">Order Now</a>
+    </div>
+</section>
+
+<section class="features">
+    <div class="feature">
+        <div class="feature-icon">🍔</div>
+        <h3>Fresh Ingredients</h3>
+        <p>We use only the freshest ingredients for all our dishes</p>
+    </div>
+    <div class="feature">
+        <div class="feature-icon">🚚</div>
+        <h3>Fast Delivery</h3>
+        <p>Get your food delivered within 30 minutes</p>
+    </div>
+    <div class="feature">
+        <div class="feature-icon">⭐</div>
+        <h3>Best Quality</h3>
+        <p>Trusted by thousands of happy customers</p>
+    </div>
+</section>
+
+<section class="categories-preview">
+    <h2>Our Menu</h2>
+    <div class="category-grid">
+        {% for category in categories %}
+        <a href="{{ url_for('menu') }}#{{ category.name.lower() }}" class="category-card">
+            <div class="category-icon">
+                {% if category.name == 'Burgers' %}🍔
+                {% elif category.name == 'Pizzas' %}🍕
+                {% elif category.name == 'Drinks' %}🥤
+                {% elif category.name == 'Desserts' %}🍰
+                {% endif %}
+            </div>
+            <h3>{{ category.name }}</h3>
+            <p>{{ category.items|length }} items</p>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
