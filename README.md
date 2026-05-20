@@ -76,7 +76,7 @@ online-food-order/
 
 ## Live Demo
 
-https://mafia-jahan.github.io/SmartSpend---Expense-Tracker/
+ https://mjahan3934-mjm.github.io/online-food-order/
 
 ## License
 
