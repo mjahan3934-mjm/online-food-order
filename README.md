@@ -74,9 +74,15 @@ online-food-order/
 - **Order** - Customer orders
 - **OrderItem** - Items within an order
 
-## Live Demo
+## Screenshots
 
- https://mjahan3934-mjm.github.io/online-food-order/
+![Home Page](screenshots/home.png)
+
+![Menu Page](screenshots/menu.png)
+
+![Cart](screenshots/cart.png)
+
+![Checkout](screenshots/checkout.png)
 
 ## License
 
