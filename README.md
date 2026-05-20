@@ -74,15 +74,9 @@ online-food-order/
 - **Order** - Customer orders
 - **OrderItem** - Items within an order
 
-## Screenshots
+## Live Demo
 
-![Home Page](screenshots/home.png)
-
-![Menu Page](screenshots/menu.png)
-
-![Cart](screenshots/cart.png)
-
-![Checkout](screenshots/checkout.png)
+https://mafia-jahan.github.io/SmartSpend---Expense-Tracker/
 
 ## License
 
